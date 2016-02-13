@@ -151,6 +151,21 @@ module.exports.initHelmetHeaders = function (app) {
   app.disable('x-powered-by');
 };
 
+
+/**
+ * #region [01] ADD saiku-embed resources
+ */
+module.exports.initSaikuEmbedRoutes = function (app) {
+  // Setting the app router and static folder
+  app.use('/_s', express.static(path.resolve('./_s')));
+
+  // Globbing static routing
+  config.folders.client.forEach(function (staticPath) {
+    app.use(staticPath, express.static(path.resolve('./_s' + staticPath)));
+  });
+
+};
+
 /**
  * Configure the modules static routes
  */
@@ -163,6 +178,10 @@ module.exports.initModulesClientRoutes = function (app) {
     app.use(staticPath, express.static(path.resolve('./' + staticPath)));
   });
 };
+
+
+
+
 
 /**
  * Configure the modules ACL policies
@@ -228,9 +247,13 @@ module.exports.init = function (db) {
 
   // Initialize Express view engine
   this.initViewEngine(app);
-  
+
   // Initialize Helmet security headers
   this.initHelmetHeaders(app);
+
+  // #region [02] Initialize saiku-embed
+  this.initSaikuEmbedRoutes(app);
+  // #endregion [02]
 
   // Initialize modules static client routes, before session!
   this.initModulesClientRoutes(app);
