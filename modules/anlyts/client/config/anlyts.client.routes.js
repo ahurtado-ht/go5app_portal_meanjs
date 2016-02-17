@@ -22,9 +22,15 @@
         controllerAs: 'vm',
       })
       .state('anlyts.access02', {
-        url: '',
+        url: '/access02',
         templateUrl: 'modules/anlyts/client/views/page-access02.client.view.html',
         controller: 'AnlytsAccess02Controller',
+        controllerAs: 'vm'
+      })
+      .state('anlyts.access03', {
+        url: '/access03',
+        templateUrl: 'modules/anlyts/client/views/page-access03.client.view.html',
+        controller: 'AnlytsAccess03Controller',
         controllerAs: 'vm'
       })
       .state('anlyts.list', {

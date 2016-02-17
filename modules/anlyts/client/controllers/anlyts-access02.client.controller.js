@@ -5,13 +5,11 @@
     .module('anlyts')
     .controller('AnlytsAccess02Controller', AnlytsAccess02Controller);
 
-
   AnlytsAccess02Controller.$inject = ['$scope', '$http', 'leafletData','ArticlesService'];
 
   function AnlytsAccess02Controller($scope, $http, leafletData, ArticlesService) {
 
     // scaffold defaults
-
     var vm = this;
     vm.anlyts = ArticlesService.query();
 

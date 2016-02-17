@@ -17,16 +17,21 @@
 
     // Add the dropdown list item
     Menus.addSubMenuItem('topbar', 'anlyts', {
-      title: 'Analytics Access 01',
+      title: 'Analytics Access 01 [embed]',
       state: 'anlyts.access01'
     });
 
     // Add the dropdown list item
     Menus.addSubMenuItem('topbar', 'anlyts', {
-      title: 'Analytics Access 02',
+      title: 'Analytics Access 02 [geo]',
       state: 'anlyts.access02'
     });
 
+    // Add the dropdown list item
+    Menus.addSubMenuItem('topbar', 'anlyts', {
+      title: 'Analytics Access 03 [iframe]',
+      state: 'anlyts.access03'
+    });
 
     // Add the dropdown list item
     Menus.addSubMenuItem('topbar', 'anlyts', {
