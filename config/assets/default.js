@@ -11,8 +11,20 @@ module.exports = {
         'public/lib/leaflet.markercluster/dist/MarkerCluster.Default.css',
         // #region [02] saiku-embed (css)
         '_s/js/saiku/plugins/CCC_Chart/tipsy.css',
-        '_s/saiku.css'
+        '_s/saiku.css',
         // #endregion [02]
+        // #region [03] saiku-adds / jquery (css)
+        '_s/css/jquery/spectrum.css',
+        '_s/css/jquery/jquery-ui.css',
+        '_s/css/saiku/src/giveitsomestyle.css',
+        '_s/js/fancybox/jquery.fancybox.css',
+        '_s/js/jquery/jquery.contextMenu.css',
+        // #endregion [03]
+        // #region [04] saiku-adds / saiku (css)
+        '_s/css/saiku/src/styles.css',
+        '_s/css/saiku/src/saiku.table.css',
+        '_s/css/saiku/src/saiku.dropzone.css'
+        // #endregion [04]
       ],
       js: [
         'public/lib/angular/angular.js',
