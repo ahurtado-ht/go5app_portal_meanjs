@@ -22,7 +22,7 @@ var Settings = {
     LICENSE: {},
     BIPLUGIN: false,
     BIPLUGIN5: false,
-    BASE_URL: window.location.origin,
+    BASE_URL:  'http://192.168.0.12:8080',  //window.location.origin, // 
     TOMCAT_WEBAPP: "/saiku",
     REST_MOUNT_POINT: "/rest/saiku/",
     DIMENSION_PREFETCH: true,

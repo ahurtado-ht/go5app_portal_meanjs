@@ -17,7 +17,8 @@ var config = require('../config'),
   helmet = require('helmet'),
   flash = require('connect-flash'),
   consolidate = require('consolidate'),
-  path = require('path');
+  path = require('path'),
+  cors = require('cors');
 
 /**
  * Initialize local variables
@@ -151,6 +152,28 @@ module.exports.initHelmetHeaders = function (app) {
   app.disable('x-powered-by');
 };
 
+// al parecer no es necesario dadao que los requests se hacen hacia el timcat
+// y ademas los requests son hechos por jquery de saiku
+module.exports.initCorsOption = function(app){
+    // app.options('*', cors());
+    app.use(cors());
+    app.use(function(req, res, next) {
+      res.header('Access-Control-Allow-Origin', '*');
+      res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+      res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+      next();
+
+      // // some browsers send a pre-flight OPTIONS request to check if CORS is enabled so you have to also respond to that
+      // if ('OPTIONS' === req.method) {
+      //   res.send(200);
+      // }
+      // else {
+      //   next();
+      // }
+
+    });
+
+};
 
 /**
  * #region [01] ADD saiku-embed resources
@@ -251,6 +274,10 @@ module.exports.init = function (db) {
   // Initialize Helmet security headers
   this.initHelmetHeaders(app);
 
+  // #region [00] initialize CORS
+  this.initCorsOption(app);
+  // #endregion [00]
+
   // #region [02] Initialize saiku-embed
   this.initSaikuEmbedRoutes(app);
   // #endregion [02]
@@ -269,6 +296,10 @@ module.exports.init = function (db) {
 
   // Initialize modules server routes
   this.initModulesServerRoutes(app);
+
+  // #region [00] initialize CORS
+  this.initCorsOption(app);
+  // #endregion [00]
 
   // Initialize error routes
   this.initErrorRoutes(app);
