@@ -15,7 +15,8 @@
       server: "http://192.168.0.12:8080/saiku",
       path: "/rest/saiku/embed",
       user: "admin",
-      password: "admin"
+      password: "admin",
+      blockUI: false
     });
 
     myClient.execute({
