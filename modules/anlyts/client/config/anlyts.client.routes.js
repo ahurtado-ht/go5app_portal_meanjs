@@ -33,6 +33,24 @@
         controller: 'AnlytsAccess03Controller',
         controllerAs: 'vm'
       })
+      .state('anlyts.access11', {
+        url: '/access11',
+        templateUrl: 'modules/anlyts/client/views/page-access11.client.view.html',
+        controller: 'AnlytsAccess11Controller',
+        controllerAs: 'vm',
+      })
+      .state('anlyts.access12', {
+        url: '/access12',
+        templateUrl: 'modules/anlyts/client/views/page-access12.client.view.html',
+        controller: 'AnlytsAccess12Controller',
+        controllerAs: 'vm',
+      })
+      .state('anlyts.access14', {
+        url: '/access14',
+        templateUrl: 'modules/anlyts/client/views/page-access14.client.view.html',
+        controller: 'AnlytsAccess14Controller',
+        controllerAs: 'vm',
+      })
       .state('anlyts.list', {
         url: '',
         templateUrl: 'modules/anlyts/client/views/list-anlyts.client.view.html',
