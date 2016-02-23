@@ -91,7 +91,8 @@ bower install
 confgrar archivo config/env/development con el nombre de la db (go5portal-dev)
 
 # subir la app
-grunt --force
+grunt --force  
+# o bien como proceso (sudo nohup grunt --force &)
 
 # crear un usuario
 admin
