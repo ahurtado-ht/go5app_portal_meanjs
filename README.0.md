@@ -1,10 +1,14 @@
---------------------------------
+=================================
 APLICACION (ACCESOS CON MEAN.JS)
---------------------------------
+=================================
 - para el caso, el portal esta hecho con meanjs
 - mejor en linux para no tener problemas de dependencias
 
-instalar node.js (5.6.0)
+-----------------
+HERRAMIENTAS BASE
+-----------------
+
+# instalar node.js (5.6.0)
 cd /.tools
 wget https://nodejs.org/dist/v5.6.0/node-v5.6.0-linux-x64.tar.xz
 cp node-v5.6.0-linux-x64.tar.xz /.work
@@ -12,31 +16,76 @@ cd /.work
 tar -xvf node-v5.6.0-linux-x64.tar.xz
 rm node-v5.6.0-linux-x64.tar.xz
 
-luego editar variables entorno
+# editar variables entorno
 sudo vi /etc/profile
+## region [01] add env vars
 export PATH=/.work/node-v5.6.0-linux-x64/bin:$PATH:
+## endregion [01]
 
 source /etc/profile
 
-despues instalar atom (bajar el rpm e instalarlo)
-luego
+probar
+	node --version
+	npm --version
+
+# instalar librerias desarrollo
 
 npm install -g bower
 npm install -g grunt-cli
 npm install -g yo
 npm install -g gulp
-#
+# instalar generator de mean
 npm install -g generator-meanjs
 #
-cd /.apps
-git clone https://github.com/meanjs/mean.git mean
-#
-hacer un fork de meanjs y descargar ese fork
-git clone https://github.com/ahurtado-ht/go5app_portal_meanjs.git
 
-# se requiere una db mongo instalada
+# instalar atom (bajar el rpm e instalarlo)
+
+
+
+# instalar db mongo
+  [ubuntu] (http://docs.mongodb.org/master/tutorial/install-mongodb-on-ubuntu/)
+	[redhat] (https://docs.mongodb.org/manual/tutorial/install-mongodb-on-red-hat/)
+
+	### crear repo
+	# crear el archivo de config
+
+	sudo vi /etc/yum.repos.d/mongodb-org-3.2.repo
+
+	# con el siguiente contenido
+
+	[mongodb-org-3.2]
+	name=MongoDB Repository
+	baseurl=https://repo.mongodb.org/yum/redhat/7/mongodb-org/3.2/x86_64/
+	gpgcheck=0
+	enabled=1
+
+  # instalar
+	sudo dnf install -y mongodb-org
+
+# subir mongo como servicio /con el sistema (root)
+
+sudo service mongod start
+sudo chkconfig mongod on
+
+# dependencias linux
+
+sudo dnf -y install  gcc-c++ gcc python mongodb-org git
+sudo dnf -y install  make
+
+
+
+
+
 
 # se requiere ruby&sass
+
+
+-----------------
+DESCARGAR PROYECTO
+-----------------
+# clonar proeycto
+cd /.apps
+git clone https://github.com/ahurtado-ht/go5app_portal_meanjs.git
 
 # configurar librerias del scaffold
 cd go5app_portal_meanjs
@@ -44,7 +93,6 @@ npm install
 bower install
 
 confgrar archivo config/env/development con el nombre de la db (go5portal-dev)
-
 
 # subir la app
 grunt
@@ -54,11 +102,16 @@ admin
 Welcoome10@
 
 
--------------------
-proxies de cliente rest: restler
 
+-----------------
+SCAFFOLD
+-----------------
 
-
+cd /.apps
+git clone https://github.com/meanjs/mean.git mean
+#
+hacer un fork de meanjs y descargar ese fork
+git clone https://github.com/ahurtado-ht/go5app_portal_meanjs.git
 
 
 
@@ -94,3 +147,8 @@ para descargar una app basica con administracion:
 	cd go5anlyt_geo_meteor2
 	meteor
 usa coffeescript. tambien tienen algo con docker
+
+-----------------------------
+REFERENCIAS
+-----------------------------
+- proxies de cliente rest: restler
