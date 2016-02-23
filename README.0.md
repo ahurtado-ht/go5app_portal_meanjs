@@ -69,13 +69,9 @@ sudo chkconfig mongod on
 
 # dependencias linux
 
-sudo dnf -y install  gcc-c++ gcc python mongodb-org git
+sudo dnf -y install  gcc-c++ gcc python
 sudo dnf -y install  make
-
-
-
-
-
+sudo dnf -y install  git
 
 # se requiere ruby&sass
 
@@ -95,7 +91,7 @@ bower install
 confgrar archivo config/env/development con el nombre de la db (go5portal-dev)
 
 # subir la app
-grunt
+grunt --force
 
 # crear un usuario
 admin
